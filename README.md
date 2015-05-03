@@ -298,7 +298,7 @@ P.S. `Ctrl + .` 可以折叠和展开代码
 
 ![foreach&fbc](http://i4.tietuku.com/6d3e735486ae8a9d.gif)
 
-# END
+# おわり
 
 ![_(:з」∠)_](http://i4.tietuku.com/46bec46a702f7b52.gif)
 
