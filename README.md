@@ -249,7 +249,7 @@ P.S. `Ctrl + .` 可以折叠和展开代码
 
 静态成员是s，普通成员是m，有点意思
 
-![变量前缀](http://i4.tietuku.com/f623911b2a24b3ae.jpg)
+![变量前缀](http://i4.tietuku.com/44dd53a842aa5a35.jpg)
 
 ### 修改新建文件文件头
 
