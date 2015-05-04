@@ -1,7 +1,7 @@
 # AndroidStudioSettingGuide
 Android Studio-1.2版本设置教程
 
->**转载请注明原文出处 http://licheetec.com/2015/05/02/android-studio-settings/ **
+> 转载请注明原文出处 http://licheetec.com/2015/05/02/android-studio-settings/
 
 这两天Google更新了Android Studio 1.2正式版，新版本的设置界面大变面，设置条目较旧版本进行了归类，不像以前那样列表长长的了。
 
@@ -10,6 +10,7 @@ Android Studio-1.2版本设置教程
 <!--more-->
 
 # Android Studio / Gradle学习资源
+
 在说设置之前，先上点学习Android Studio和Gradle的学习资源。
 
 ## 官方教程
@@ -50,7 +51,6 @@ http://developer.android.com/sdk/index.html#Other
 关于下载，我建议下载绿色版的Android Studio和SDK，别下安装包版捆绑版的，这样如果有哪个出了问题要重装，只要动一个就行了。
 
 ![下载](http://i4.tietuku.com/d1cdaa3469459a3f.jpg)
-
 其他版本可以在这里找到 http://tools.android.com/download/studio/canary 
 
 ## 禁用Windows中`Ctrl+Space`切换输入法的快捷键
@@ -59,7 +59,6 @@ Windows的Ctrl+Space快捷键（切换中文输入法）跟一堆IDE的冲突，
 或者下载我改好的注册表文件（[右键另存为](https://github.com/licheetec/filestore/raw/master/others/disable_ctrl_space.zip)），双击导入压缩包里面的文件，重启系统即可。
 
 ![禁用Windows+Space快捷键](http://i4.tietuku.com/4824ab2a935b548c.jpg)
-
 原理参考[这里](http://answers.microsoft.com/en-us/windows/forum/windows_vista-desktop/how-do-i-disable-the-changing-of-languages-when-i/f01de525-73b2-4c4e-969e-b5aa001c0eb7)。
 
 ## 环境变量
@@ -70,13 +69,16 @@ Windows的Ctrl+Space快捷键（切换中文输入法）跟一堆IDE的冲突，
 还有`PATH`的要特别注意，要加到原来的后面，别一脑门全部覆盖掉。
 
 ### JAVA
+
 ```
 JAVA_HOME=E:\DevTools\Others\Java\jdk1.7.0_67
 CLASSPATH=.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
 # 注意，%PATH%为原来的环境变量值，添加";"和后面的内容到原来值的后面
 PATH=%PATH%;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
 ```
+
 ### Android SDK
+
 ```
 ANDROID_HOME=E:\DevTools\Android\sdk
 PATH=%PATH%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools
@@ -101,16 +103,20 @@ GRADLE_USER_HOME=E:\DevWorks\.gradle
 ### 配置SDK Manager科学上网，升级SDK
 
 最近红杏出了公益代理，简直是开发人员的福音，详情看：http://blog.honx.in/dev-only/
-按照红杏提供地址和端口进行修改（别加`http://`），必要时可以按一下“Clear Cache”。
+按照红杏提供地址和端口（目前是`hx.gy:1080`）进行修改（别加`http://`），必要时可以按一下“Clear Cache”。
 
-![SDK Manager配置](http://i4.tietuku.com/87731de27be2fce6.jpg)
+>有条件的话，可以试试买个付费的shadowsocks，我现在shadowsocks.com的99包年套餐。
+电信8M，部分线路能达到900多KB/s的速度，几乎满速了，感觉还行。
+具体怎么购买和配置，不在本文介绍范围内，请自行找科普。
+如果要买的话，请务必用 [`我的推广链接`](https://portal.shadowsocks.com/aff.php?aff=470) ，我有提成的。（笑）
+
+![SDK Manager配置](http://i1.tietuku.com/655456e2121590d9.jpg)
 
 关于下载，`Tools`中`Android SDK Build-tools`建议`全部下载`，
 其他各个API版本，建议至少下载`SDK Platform`（必须，framework层的东东全在这里）和`Sources for Android SDK`（源码），
 `Extras`中***必须***下载`Android Support Repository`和`Android Support Library`（Support库的东东，现在开发离不开Support库了），
 上面提到的是开发必须用到的，其他东西就看情况了，你有时间又不在乎资源占用的话，全下载都行。
-
-顺便附上我自己下载的，[猛戳此连接查看](http://i4.tietuku.com/d7984b86d4a00ddc.jpg)。
+顺便附上我自己下载的，[猛戳此连接查看](http://i1.tietuku.com/53c9ca6eee9d8ab6.jpg)。
 
 <a id="idea-properties"></a>
 
@@ -129,14 +135,14 @@ disable.android.first.run=true
 # ${idea.home.path}表示Android Studio程序的主目录，注意目录分隔符要用正斜杠“/”
 idea.config.path=${idea.home.path}/.AndroidStudio.2/config
 idea.system.path=${idea.home.path}/.AndroidStudio.2/system
-
 ```
 
 >非常坑爹的是，每次Android Studio升级时，都会强制检测AS主目录里面的文件或文件夹是否被动过，
-当然也包含这个idea.properties， 有些增强模板或插件，例如这个 [AndroidStudioTemplate](https://github.com/gabrielemariotti/AndroidStudioTemplate)，安装时要求覆盖`<android-studio>\plugins\android\lib\templates`。
+当然也包含这个idea.properties，
+有些增强模板或插件，例如这个 [AndroidStudioTemplate](https://github.com/gabrielemariotti/AndroidStudioTemplate)，安装时要求覆盖`<android-studio>\plugins\android\lib\templates`。
 如果发现被改了，就会要求进行~~处理~~（恢复默认）操作，举例来说，idea.properties和那个templates会被还原为解压时的模样，各种修改都会失效。
 所以保险起见，这个`idea.properties`文件改完就备份一下，以后升级完AS，就手动改回去，各种插件/模板也存一个备份，别装完就删掉，免得被AS的升级程序删了后找不回来。
-</br>
+
 
 # 设置Android Studio
 
@@ -249,7 +255,7 @@ P.S. `Ctrl + .` 可以折叠和展开代码
 
 静态成员是s，普通成员是m，有点意思
 
-![变量前缀](http://i4.tietuku.com/44dd53a842aa5a35.jpg)
+![变量前缀](http://i4.tietuku.com/f623911b2a24b3ae.jpg)
 
 ### 修改新建文件文件头
 
@@ -304,3 +310,4 @@ P.S. `Ctrl + .` 可以折叠和展开代码
 
 搞定，Android Studio基本设置教程暂时这样了，以后有新东西再更新，其他编译系统相关的暂时不是摸得很明白，就不乱来误人子弟了。
 可累了。
+
